@@ -17,10 +17,11 @@ class UserGetListTestCase(unittest.TestCase):
         check=data['check']
         print(check)
         payload=data['data']
+        self._testMethodDoc=data['detail']
         if method=='post':
             res=requests.post(base_url,data=payload)
         else:
-            res=requests.get(base_url,params=data)
+            res=requests.get(base_url,params=payload)
         result=res.text
         print(result)
         # self.assertEqual(True, False)
@@ -29,7 +30,6 @@ class UserGetListTestCase(unittest.TestCase):
         print(results)
         for c in check:
             self.assertIn(c,results)
-
 
 if __name__ == '__main__':
     unittest.main()
