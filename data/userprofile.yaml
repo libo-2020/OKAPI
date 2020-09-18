@@ -1,0 +1,28 @@
+###/data/userprofile.yaml
+
+- # 测试查看成功
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.Profile
+    uuid: 631610AFD6B9C1F76A7E6D8BE7352FD2
+    token: 51081A78BB8EED8DBB0874BAE4B19B26AB0C5E153918DE4C40C8384FCB542BD7
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+  check:
+    - err_code=0
+    - ret=200
+    - "err_msg="
+
+- #当测试用户token错误，查看失败
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    s: App.User.Profile
+    uuid: 631610AFD6B9C1F76A7E6D8BE7352FD2
+    token: 85F4B139C626A6CFD588310BB91CE7FDA64DC198D254C6C9BA1F7154DB974AB7
+  check:
+    - data={}
+    - ret=401
+    - msg=客户端非法请求：登录会话已过期，请重新登录
+
