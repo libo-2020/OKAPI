@@ -4,7 +4,7 @@ import requests
 from setting import *
 import os
 import ddt
-from lib.utils import set_res_data
+from lib.utils_userprofile import set_res_data
 
 
 @ddt.ddt
