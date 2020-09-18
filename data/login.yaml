@@ -1,0 +1,17 @@
+- #修改会员扩展信息接口
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.UpdateExtInfo
+    app_key: 503ED17D034EFD2CF9337AED9F12AE1A
+    uuid: 11351366AAC8C4E697644213DCB2956E
+    token: 2229909A1565A4B6446AB5B6D5243570CF1F499F93FE126409EF9A8159F7C627
+    ext_info:
+      nickname: girl
+      age: "22"
+      location: 四川
+  check:
+    - ret=400
+    - 'msg='
+
+
