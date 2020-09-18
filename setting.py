@@ -1,13 +1,12 @@
 import os
+#设置目录的绝对路径
+BASE_PATH=os.path.dirname(os.path.abspath(__file__))
+#yaml测试用例存放位置
+DATA_PATH=os.path.join(BASE_PATH,'data')
+#unittest测试类文件存放位置
+CASE_PATH=os.path.join(BASE_PATH,'cases')
+#测试报告路径
+REPORT_PATH=os.path.join(BASE_PATH,'report')
 
-API_URL = 'http://hn216.api.yesapi.cn/'
-APP_KEY = '503ED17D034EFD2CF9337AED9F12AE1A'
 
 
-BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.join(BASE_PATH,'data')
-CASE_PATH = os.path.join(BASE_PATH,'cases')
-REPORT_PATH = os.path.join(BASE_PATH,'report')
-print(DATA_PATH)
-print(CASE_PATH)
-print(REPORT_PATH)
