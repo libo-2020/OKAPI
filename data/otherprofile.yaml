@@ -1,0 +1,48 @@
+-  #会员Redodu正向用例通过get请求方式
+  url: http://hn216.api.yesapi.cn/
+  method: 'get'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    other_uuid: 321286992C1DE8FBC1493BE1715D6ADE
+  check:
+    - ret=200
+    - err_code=0
+    - '"err_msg="'
+    - msg=V3.1.0 YesApi App.User.OtherProfile
+-  #会员dududu正向用例通过post请求方式
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    other_uuid: 13143D709233AC37A7F96590601D7644
+  check:
+    - ret=200
+    - err_code=0
+    - '"err_msg="'
+    - msg=V3.1.0 YesApi App.User.OtherProfile
+-  #会员xiaobai正向用例通过get请求方式
+  url: http://hn216.api.yesapi.cn/
+  method: 'get'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    other_uuid: 631610AFD6B9C1F76A7E6D8BE7352FD2
+  check:
+    - ret=200
+    - err_code=0
+    - '"err_msg="'
+    - msg=V3.1.0 YesApi App.User.OtherProfile
+-  #会员xiaohei正向用例通过post请求方式
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    other_uuid: 9CE8030ED17BFB141F596457BA237FD1
+  check:
+    - ret=200
+    - err_code=0
+    - '"err_msg="'
+    - msg=V3.1.0 YesApi App.User.OtherProfile
