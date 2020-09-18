@@ -6,7 +6,7 @@ import requests
 
 from lib.utils import *
 
-from setting import API_URL, BASE_PATH, DATA_PATH
+from setting import  BASE_PATH, DATA_PATH
 
 
 
@@ -14,6 +14,7 @@ from setting import API_URL, BASE_PATH, DATA_PATH
 class LogoutAll(unittest.TestCase):
     @ddt.file_data(os.path.join(DATA_PATH,'aogoutall.yaml'))
     def test_logouAll(self,**case):
+        self._testMethodDoc = case.get("detail")
         #构建参数
         # print(case)
         url=case.get('url')
