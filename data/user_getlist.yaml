@@ -1,0 +1,150 @@
+-
+  url: http://hn216.api.yesapi.cn
+  method: post
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0C810549
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=200
+    - err_code=0
+    - "err_msg="
+  detail: 确保所有接口都能正常的post请求正向用例
+-
+  url: http://hn216.api.yesapi.cn
+  method: get
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0C810549
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=200
+    - err_code=0
+    - "err_msg="
+  detail: 确保所有接口都能正常的get请求正向用例
+-
+  url: http://hn216.api.yesapi.cn
+  method: post
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0C8105499
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=406
+    - data={}
+    - msg=客户端非法请求：非法app_key
+  detail: app_key字符长度为33位的post请求
+-
+  url: http://hn216.api.yesapi.cn
+  method: get
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0C8105499
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=406
+    - data={}
+    - msg=客户端非法请求：非法app_key
+  detail: app_key字符长度为33位的get请求
+-
+  url: http://hn216.api.yesapi.cn
+  method: post
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0C81054
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=400
+    - data={}
+    - msg=客户端非法请求：app_key.len应该大于或等于32, 但现在app_key.len = 31
+  detail: app_key字符长度为31位的post请求
+-
+  url: http://hn216.api.yesapi.cn
+  method: get
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0C81054
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=400
+    - data={}
+    - msg=客户端非法请求：app_key.len应该大于或等于32, 但现在app_key.len = 31
+  detail: app_key字符长度为31位的get请求
+-
+  url: http://hn216.api.yesapi.cn
+  method: post
+  data:
+    s: App.User.GetList
+    app_key:
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=400
+    - data={}
+    - msg=客户端非法请求：缺少必要参数app_key
+  detail: app_key为空的post请求
+-
+  url: http://hn216.api.yesapi.cn
+  method: get
+  data:
+    s: App.User.GetList
+    app_key:
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=400
+    - data={}
+    - msg=客户端非法请求：缺少必要参数app_key
+  detail: app_key为空的get请求
+-
+  url: http://hn216.api.yesapi.cn
+  method: post
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0%C81054
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=406
+    - data={}
+    - msg=客户端非法请求：非法app_key
+  detail: app_key含特殊字符的请求
+-
+  url: http://hn216.api.yesapi.cn
+  method: post
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0李C81054
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=406
+    - data={}
+    - msg=客户端非法请求：非法app_key
+  detail: app_key含特殊字符的请求
