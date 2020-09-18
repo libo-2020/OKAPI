@@ -1,0 +1,10 @@
+-
+  url: http://hn216.api.yesapi.cn/
+  method: get
+  data:
+    s: App.User.MultiProfile
+    app_key: BE7FE3D8B276951BCBDDDB56C4D58479
+    uuids: 676003847A6FAF10908B6A6184A84B2C1,3FE6E35B5A4DC896CB8034E2F08A14731,4EC1E8184D8C377B2314EA327AD603541
+  check:
+    - info_list=[]
+#  detail: "测试"

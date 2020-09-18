@@ -1,5 +1,5 @@
 from BeautifulReport import BeautifulReport
-from setting import CASE_PATH,REPORT_PATH
+from setting import CASE_PATH,REPORT_PATH,DATA_PATH
 import time
 import unittest
 

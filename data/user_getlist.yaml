@@ -1,0 +1,14 @@
+-
+  url: http://hn216.api.yesapi.cn
+  method: post
+  data:
+    s: App.User.GetList
+    app_key: 26A9E391E1E27B606543974B0C810549
+    page: 1
+    perpage: 20
+    role: all
+    sort_type: 1
+  check:
+    - ret=200
+    - err_code=0
+    - "err_msg="
