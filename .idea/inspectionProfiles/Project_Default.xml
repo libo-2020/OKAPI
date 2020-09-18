@@ -1,0 +1,20 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="demo_root_add.BY" />
+          <option value="demo_jd_bieshu.WebdriverWait" />
+          <option value="test_case.test_place_order.PlaceOrder.place" />
+          <option value="test_case.test_place_order.PlaceOrder.place_order" />
+          <option value="page.place_order.*" />
+          <option value="test_case.test_shopping.MyTestCase.driver" />
+          <option value="tuple.send_keys" />
+          <option value="test_case.test_youxian.driver" />
+          <option value="test_case.test_youxian.ManualPositpage" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
