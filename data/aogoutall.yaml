@@ -11,7 +11,7 @@
     - ret=200
     - err_code=0
     - '"err_msg="'
-#  detail: post请求正向用例
+  detail: get请求正向用例
 
 -
   url: http://hn216.api.yesapi.cn/
@@ -25,7 +25,7 @@
     - ret=200
     - err_code=0
     - '"err_msg="'
-#  detail: post请求正向用例
+  detail: post请求正向用例
 
 -
   url: http://hn216.api.yesapi.cn/
@@ -40,4 +40,130 @@
     - ret=200
     - err_code=0
     - '"err_msg="'
-#  detail: 添加token请求正向用例
+  detail: 添加token请求正向用例
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key: 4F476813EC222132D61351A3AA1D159B
+    uuid: E3206FD2523DC5A68BA33CC6E12AA419
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46
+
+  check:
+    - ret=400
+    - 'msg=客户端非法请求'
+  detail: 63位错误的token请求反向用例
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key: 4F476813EC222132D61351A3AA1D159B
+    uuid: E3206FD2523DC5A68BA33CC6E12AA419
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46FA
+
+  check:
+    - ret=400
+    - 'msg=客户端非法请求'
+  detail: 65位错误的token请求反向用例
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key: 4F476813EC222132D61351A3AA1D159
+    uuid: E3206FD2523DC5A68BA33CC6E12AA419
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46F
+
+  check:
+    - ret=400
+    - 'msg=客户端非法请求'
+  detail: 错误app_key,31位
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key: 4F476813EC222132D61351A3AA1D159BA
+    uuid: E3206FD2523DC5A68BA33CC6E12AA419
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46F
+
+  check:
+    - ret=406
+    - 'msg=客户端非法请求'
+  detail: 错误app_key,33位
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key: 4F476813EC222132D61351A3AA1D159b
+    uuid: E3206FD2523DC5A68BA33CC6E12AA419
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46F
+
+  check:
+    - ret=406
+    - 'msg=客户端非法请求'
+  detail: 错误app_key,大写B改为小写b
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key:
+    uuid: E3206FD2523DC5A68BA33CC6E12AA419
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46F
+
+  check:
+    - ret=400
+    - 'msg=客户端非法请求'
+  detail: app_key为空
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key: 4F476813EC222132D61351A3AA1D159B
+    uuid: E3206FD2523DC5A68BA33CC6E12AA41
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46F
+
+  check:
+    - ret=400
+    - 'msg=客户端非法请求'
+  detail: 错误uuid，31位
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key: 4F476813EC222132D61351A3AA1D159B
+    uuid: E3206FD2523DC5A68BA33CC6E12AA4190
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46F
+
+  check:
+    - ret=400
+    - 'msg=客户端非法请求'
+  detail: 错误uuid，33位
+
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.LogoutAll
+    app_key: 4F476813EC222132D61351A3AA1D159B
+    uuid:
+    token: 21B6F7D81DFAE36450A2B8FAACFA0A3F9658367BB3B668206CED34A56907C46F
+
+  check:
+    - ret=400
+    - 'msg=客户端非法请求'
+  detail: uuid为空
