@@ -23,6 +23,7 @@ class UserGetListTestCase(unittest.TestCase):
         else:
             res=requests.get(base_url,params=payload)
         result=res.text
+        print(res.status_code)
         print(result)
         # self.assertEqual(True, False)
         # check=['ret=200','err_code=0','"err_msg="']
