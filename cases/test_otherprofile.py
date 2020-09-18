@@ -3,7 +3,7 @@ otherprofile接口测试用例
 """
 import unittest,requests,ddt,os
 from lib.utils_otherprofile import set_res_data
-from setting import DATA_PATH
+from setting_otherprofile import DATA_PATH
 
 @ddt.ddt
 class OtherProfile(unittest.TestCase):

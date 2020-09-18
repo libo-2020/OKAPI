@@ -1,6 +1,6 @@
 import time
 import unittest
-from setting import *
+from setting_otherprofile import *
 from BeautifulReport import BeautifulReport
 #discover运行的路径
 discover=unittest.defaultTestLoader.discover(CASE_PATH,'*.py')
