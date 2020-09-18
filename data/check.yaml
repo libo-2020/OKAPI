@@ -1,0 +1,26 @@
+
+#登录状态为成功
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.Check
+    app_key: 5CBB0F0AC8CCFC7032F5023CD7BE9F79
+    uuid: ACAA725AF687A45CB6769EDF6EBF647B
+    token: A47F9757FDB97FBDF18557994BA93103D2222092C2A96C6EA8F20BAF9202EF2C
+  check:
+    - ret=200,
+    - err_code=0,
+    - '"err_msg="'
+
+#登录的状态为失败
+-
+  url: http://hn216.api.yesapi.cn/
+  method: post
+  data:
+    s: App.User.Check
+    app_key: 5CBB0F0AC8CCFC7032F5023CD7BE9F
+    uuid: ACAA725AF687A45CB6769EDF6EBF647B
+    token: A47F9757FDB97FBDF18557994BA93103D2222092C2A96C6EA8F20BAF9202EF2C
+  check:
+      - ret=400
