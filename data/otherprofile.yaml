@@ -10,6 +10,8 @@
     - err_code=0
     - '"err_msg="'
     - msg=V3.1.0 YesApi App.User.OtherProfile
+  detail: "用例1：验证url,method,data数据全都合法的情况下，get请求方式，用例通过"
+
 -  #会员dududu正向用例通过post请求方式
   url: http://hn216.api.yesapi.cn/
   method: 'post'
@@ -22,6 +24,8 @@
     - err_code=0
     - '"err_msg="'
     - msg=V3.1.0 YesApi App.User.OtherProfile
+  detail: "用例2：验证url,method,data数据全都合法的情况下，post请求方式，用例通过"
+
 -  #会员xiaobai正向用例通过get请求方式
   url: http://hn216.api.yesapi.cn/
   method: 'get'
@@ -34,6 +38,8 @@
     - err_code=0
     - '"err_msg="'
     - msg=V3.1.0 YesApi App.User.OtherProfile
+  detail: "用例3：验证url,method,data数据全都合法的情况下，other_uuid不同的情况下，get请求方式，用例通过"
+
 -  #会员xiaohei正向用例通过post请求方式
   url: http://hn216.api.yesapi.cn/
   method: 'post'
@@ -46,3 +52,161 @@
     - err_code=0
     - '"err_msg="'
     - msg=V3.1.0 YesApi App.User.OtherProfile
+  detail: "用例4：验证url,method,data数据全都合法的情况下，other_uuid不同的情况下，post请求方式，用例通过"
+
+-  #会员xiaohei正向用例通过post请求方式uuid不存在，err_code应为1
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    other_uuid: 9CE8030ED17BFB141F596457BA237FD4
+  check:
+    - ret=200
+    - err_code=1
+    - '"err_msg="'
+    - msg=V3.1.0 YesApi App.User.OtherProfile
+  detail: "用例5：验证url,method全都合法的情况下，uuid不存在，err_code应为1用例通过"
+
+-  #会员xiaohei正向用例通过post请求方式
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    other_uuid: 9CE8030ED17BFB141F596457BA237FD1
+  check:
+    - ret=200
+    - err_code=0
+    - '"err_msg="'
+    - msg=V3.1.0 YesApi App.User.OtherProfile
+#这条用例与用例4一致
+  detail: "用例6：验证url,method,data数据全都合法的情况下，用例通过"
+
+-  #会员xiaohei正向用例通过post请求方式增加了一个uuid（非必选）数据
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    uuid: 321286992C1DE8FBC1493BE1715D6ADE
+    other_uuid: 9CE8030ED17BFB141F596457BA237FD1
+  check:
+    - ret=200
+    - err_code=0
+    - '"err_msg="'
+    - msg=V3.1.0 YesApi App.User.OtherProfile
+  detail: "用例7：验证url,method,data数据全都合法的情况下，增加uuid合法的情况下，用例通过"
+
+-  #会员xiaohei正向用例通过post请求方式增加了一个uuid（非必选）数据再增加一个长度不合法的token（非必选）数据，再请求
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    uuid: 321286992C1DE8FBC1493BE1715D6ADE
+    #token长度小于64位时长度位、为63位的时候
+    token: F1B5D1DCD0893B33DF1FB611B9EDC46FF8ADBC5880616D228013A2AF88CB5D2
+    other_uuid: 9CE8030ED17BFB141F596457BA237FD1
+  check:
+    - ret=400
+#    - err_code=0
+#    - '"err_msg="'
+    - msg=客户端非法请求
+  detail: "用例8：验证url,method,data数据全都合法的情况下，token长度不合法为63位，用例通过"
+
+-  #会员xiaohei正向用例通过post请求方式增加了一个uuid（非必选）数据再增加一个合法正确的token（非必选）数据，再请求
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    uuid: 321286992C1DE8FBC1493BE1715D6ADE
+    #token长度等于64位时长度位时，token不合法的时候
+    token: 9999999999999999999999999999999999999999999999999999999999999999
+    other_uuid: 9CE8030ED17BFB141F596457BA237FD1
+  check:
+    - ret=400
+    - msg=客户端非法请求
+  detail: "用例9：验证url,method,data数据全都合法的情况下，token长度位64位，但不正确，用例通过"
+
+-  #会员xiaohei正向用例通过post请求方式增加了一个uuid（非必选）数据再增加一个长度位65位不合法token非必选）数据，再请求
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    uuid: 321286992C1DE8FBC1493BE1715D6ADE
+    #token长度大64位时长度位时，长度为65位token不合法的时候
+    token: 99999999999999999999999999999999999999999999999999999999999999999
+    other_uuid: 9CE8030ED17BFB141F596457BA237FD1
+  check:
+    - ret=400
+    - msg=客户端非法请求
+  detail: "用例10：验证url,method,data数据全都合法的情况下，长度位65位不合法token，用例通过"
+
+-  #会员xiaohei正向用例通过post请求方式增加了一个uuid（非必选）数据再增加一个合法正确的token（非必选）数据，再请求
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    uuid: 9C81650C31D7F71BC457FB6D3F9CD92A
+    #token长度为64位，且合法的时候
+    token: F1B5D1DCD0893B33DF1FB611B9EDC46FF8ADBC5880616D228013A2AF88CB5D26
+    other_uuid: 9C81650C31D7F71BC457FB6D3F9CD92A
+  check:
+    - ret=200
+    - err_code=0
+    - '"err_msg="'
+    - msg=V3.1.0 YesApi App.User.OtherProfile
+  detail: "用例11：验证url,method,data数据全都合法的情况下，合法正确的token，用例通过"
+
+-  #会员xiaohei正向用例通过post请求方式增加了一个uuid（非必选）数据再增加一个合法正确的token（非必选）数据，再请求
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    uuid: 9C81650C31D7F71BC457FB6D3F9CD92A
+    other_uuid: 9C81650C31D7F71BC457FB6D3F9CD92A
+  check:
+    - ret=402
+    - msg=注册未登录或会话过期
+  detail: "用例12：验证url,method,data数据全都合法的情况下，新注册的会员未登录的情况下，用例通过"
+
+-  #接口不存在应报ret=404错误
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    #接口名不合法
+    s: App.User.OtherProfilo
+#    s: App.User.OtherProfile
+    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    uuid: 9C81650C31D7F71BC457FB6D3F9CD92A
+    #token长度为64位，且合法的时候
+    token: F1B5D1DCD0893B33DF1FB611B9EDC46FF8ADBC5880616D228013A2AF88CB5D26
+    other_uuid: 9C81650C31D7F71BC457FB6D3F9CD92A
+  check:
+    - ret=404
+#    - err_code=0
+#    - '"err_msg="'
+    - msg=客户端非法请求
+  detail: "用例13：验证url,method,data数据全都合法的情况下，接口名不存在的情况下，用例通过"
+
+-  #app_key不正确，报406错误
+  url: http://hn216.api.yesapi.cn/
+  method: 'post'
+  data:
+    s: App.User.OtherProfile
+    #非法app_key
+    app_key: C934E82FEE5E64FC9035E3315BA667Ad
+#    app_key: C934E82FEE5E64FC9035E3315BA667AC
+    uuid: 9C81650C31D7F71BC457FB6D3F9CD92A
+    #token长度为64位，且合法的时候
+    token: F1B5D1DCD0893B33DF1FB611B9EDC46FF8ADBC5880616D228013A2AF88CB5D26
+    other_uuid: 9C81650C31D7F71BC457FB6D3F9CD92A
+  check:
+    - ret=406
+    - msg=客户端非法请求
+  detail: "用例14：验证url,method,data数据全都合法的情况下，app_keyu不存在的情况下，用例通过"
